@@ -1,0 +1,116 @@
+#root.root {--accent: #7F3DD3;}
+#root.root {--tabs-close-btn-margin: 6px;}
+#root.root {--nav-btn-height: 32px;}
+#root.root {--nav-btn-width: 32px;}
+#root.root {--tabs-indent: 12px;}
+#root.root {--tabs-margin: 4px;}
+#root.root {--tabs-inner-gap: 5px;}
+#root.root {--nav-hidden-btn-border-radius: 5px;}
+#root.root {--nav-btn-len-margin: 1px;}
+#root.root {--general-margin: 5px;}
+#root.root {--nav-btn-margin: 5px;}
+#root.root {--nav-btn-border-radius: 30px;}
+
+#root.root {--nav-hidden-panels-popup-margin: 3px;}
+:root{
+	--pinned-tab-body-width: 32px;
+  --pinned-tab-bg-color: #554466;
+	--tab-body-width: 32px;
+	--close-btn-bg: #E45A5A;
+  --highlight-color: #7F3DD3;
+}
+
+.PinnedTabsBar{
+ /*background-color: #32313A;*/
+ background: transparent;
+ max-width: 100%;
+
+
+}
+
+#root[data-pinned-tabs-position="top"] .PinnedTabsBar{
+ 
+}
+
+.Tab[data-pin="true"]{
+ width: 194px;
+}
+
+.Tab[data-pin="true"] > .body{
+  background-color: var(--pinned-tab-bg-color);
+  width: var(--pinned-tab-body-width);
+  transition: width 230ms !important;
+  will-change: width;
+  transition-delay: 0ms !important;*/
+}
+
+.Tab[data-pin="true"]:hover > .body{
+  transition: width 230ms !important;
+  width: var(--pinned-tab-body-width);
+  transition-delay: 0ms !important;
+}
+
+.Tab[data-pin="false"] > .body{
+  width: var(--tab-body-width);
+  transition: width 300ms !important;
+  will-change: width;
+  transition-delay: 0ms !important;
+}
+
+.Tab[data-active="true"] > .body{
+ background: var(--accent);
+ box-shadow: 0px 0px 5px var(--accent);
+}
+
+.NavigationBar .nav-item[data-active="true"]{
+ background: var(--accent);
+ box-shadow: 0px 0px 5px var(--accent);
+}
+
+.NavigationBar .nav-item[data-active="true"]:hover{
+ background: #9851F2;
+ box-shadow: 0px 0px 5px #7F3DD3;
+ border-radius: 200px;
+}
+
+.NavigationBar.-vert{
+ padding-left:3px;
+ padding-right:3px;
+ background: transparent;
+ border-right: solid 1px;
+ border-right-color: var(--pinned-tab-bg-color);
+ background: linear-gradient(180deg, #393444 0%, #100C17 100%);
+}
+
+.Sidebar:hover{
+	--pinned-tab-body-width: 194px;
+	--tab-body-width: 100%;
+}
+
+
+.Tab[data-pin="false"] .fav {
+	margin: 0 var(--tabs-inner-gap)0 calc(var(--tabs-inner-gap) + 3px);
+	z-index: 20;
+}
+
+.Tab[data-pin="true"] .fav {
+	margin: 0 var(--tabs-inner-gap)0 calc(var(--tabs-inner-gap) + 3px);
+	z-index: 20;
+}
+
+.TabsPanel .bottom-space {
+ background: transparent;
+}
+
+
+.TabsPanel .bottom-bar{
+display:none;
+}
+
+.main-box{
+background: linear-gradient(180deg, #393444 0%, #100C17 100%);
+}
+.Tab .close:hover{
+ background-color: var(--accent);
+ border-radius:20px;
+}
