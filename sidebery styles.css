@@ -1,35 +1,28 @@
-#root.root {--accent: #7F3DD3;}
+#root.root {--general-margin: 0px;}
 #root.root {--tabs-close-btn-margin: 6px;}
 #root.root {--nav-btn-height: 32px;}
 #root.root {--nav-btn-width: 32px;}
-#root.root {--tabs-indent: 12px;}
+#root.root {--tabs-indent: 15px;}
 #root.root {--tabs-margin: 4px;}
 #root.root {--tabs-inner-gap: 5px;}
 #root.root {--nav-hidden-btn-border-radius: 5px;}
 #root.root {--nav-btn-len-margin: 1px;}
-#root.root {--general-margin: 5px;}
-#root.root {--nav-btn-margin: 5px;}
+#root.root {--nav-btn-margin: 4px;}
 #root.root {--nav-btn-border-radius: 30px;}
 
 #root.root {--nav-hidden-panels-popup-margin: 3px;}
 :root{
-	--pinned-tab-body-width: 32px;
-  --pinned-tab-bg-color: #554466;
-	--tab-body-width: 32px;
-	--close-btn-bg: #E45A5A;
-  --highlight-color: #7F3DD3;
+	--tab-body-opacity: 0;
 }
 
 .PinnedTabsBar{
- /*background-color: #32313A;*/
- background: transparent;
+ background-color: var(--toolbar-bg);
  max-width: 100%;
-
-
 }
 
-#root[data-pinned-tabs-position="top"] .PinnedTabsBar{
- 
+#root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar{
+ padding-top: 5px;
+ padding-bottom: 0px;
 }
 
 .Tab[data-pin="true"]{
@@ -37,23 +30,19 @@
 }
 
 .Tab[data-pin="true"] > .body{
-  background-color: var(--pinned-tab-bg-color);
-  width: var(--pinned-tab-body-width);
-  transition: width 230ms !important;
-  will-change: width;
-  transition-delay: 0ms !important;*/
+  opacity: var(--tab-body-opacity);
+  transition: opacity 290ms !important;
+  transition-delay: 0ms !important;
 }
 
 .Tab[data-pin="true"]:hover > .body{
-  transition: width 230ms !important;
-  width: var(--pinned-tab-body-width);
+  transition: opacity 290ms !important;
+  opacity: var(--tab-body-opacity);
   transition-delay: 0ms !important;
 }
 
 .Tab[data-pin="false"] > .body{
   width: var(--tab-body-width);
-  transition: width 300ms !important;
-  will-change: width;
   transition-delay: 0ms !important;
 }
 
@@ -68,25 +57,18 @@
 }
 
 .NavigationBar .nav-item[data-active="true"]:hover{
- background: #9851F2;
- box-shadow: 0px 0px 5px #7F3DD3;
  border-radius: 200px;
 }
 
 .NavigationBar.-vert{
  padding-left:3px;
  padding-right:3px;
- background: transparent;
- border-right: solid 1px;
- border-right-color: var(--pinned-tab-bg-color);
- background: linear-gradient(180deg, #393444 0%, #100C17 100%);
 }
 
 .Sidebar:hover{
-	--pinned-tab-body-width: 194px;
+	--tab-body-opacity: 1;
 	--tab-body-width: 100%;
 }
-
 
 .Tab[data-pin="false"] .fav {
 	margin: 0 var(--tabs-inner-gap)0 calc(var(--tabs-inner-gap) + 3px);
@@ -102,15 +84,30 @@
  background: transparent;
 }
 
-
 .TabsPanel .bottom-bar{
 display:none;
 }
 
-.main-box{
-background: linear-gradient(180deg, #393444 0%, #100C17 100%);
-}
 .Tab .close:hover{
  background-color: var(--accent);
  border-radius:20px;
+}
+
+/* remove indent of nested tabs */
+#root:not(:hover){
+  --tabs-indent: 0;
+}
+
+/* hide tab bar splitter */
+#root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar::after{
+ display: none
+}
+
+.ScrollBox{
+ padding-top:5px;
+	border-radius: 10px 10px 0 0;
+	background-color: var(--frame-bg);
+}
+.panel[data-pos="center"]{
+	background-color: var(--toolbar-bg);
 }

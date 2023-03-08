@@ -1,6 +1,6 @@
-# Custom UserChrome.css for streamlined Firefox browsing with TreeStyleTab and Sidebery Addons
+# Custom UserChrome.css for TreeStyleTab and Sidebery Firefox Addons
 
-This repository contains UserChrome.css configurations that hide the top navigation bar and provide functionality to collapse the sidebar, which expands on hover. The configurations are designed to work with both TreeStyleTab and Sidebery addons.
+This repository contains UserChrome.css configurations that hide the top navigation bar and provide functionality to collapse the sidebar, which expands on hover. The configurations are designed to work with both TreeStyleTab and Sidebery v5 addons.
 
 ## Installation
 
