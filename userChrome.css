@@ -1,43 +1,66 @@
 /* hide the titlebar */
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  > .toolbar-items {
   opacity: 0;
   pointer-events: none;
 }
 #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-    visibility: collapse !important;
+  visibility: collapse !important;
 }
 
 /* hide sidebar header */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar-header {
   visibility: collapse;
 }
- 
+
 /* Sidebar min and max width removal */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
-  --uc-sidebar-width: 78px !important;
-  --uc-sidebar-hover-width: 240px;
-  --uc-autohide-sidebar-delay: 3000ms;
-  position: relative;
-  min-width: var(--uc-sidebar-width) !important;
-  width: var(--uc-sidebar-width) !important;
-  max-width: var(--uc-sidebar-width) !important;
-  z-index:1;
+// #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+//   --uc-sidebar-width: 78px !important;
+//   --uc-sidebar-hover-width: 240px;
+//   --uc-autohide-sidebar-delay: 3000ms;
+//   position: relative;
+//   min-width: var(--uc-sidebar-width) !important;
+//   width: var(--uc-sidebar-width) !important;
+//   max-width: var(--uc-sidebar-width) !important;
+//   z-index:1;
+// }
+//
+// #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] > #sidebar-splitter {
+//   display: none
+// }
+//
+// /* Sidebar autohide and show on hover */
+// #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] > #sidebar {
+//   transition: min-width 300ms !important;
+//   min-width: var(--uc-sidebar-width) !important;
+//   will-change: min-width;
+//   transition-delay: 0ms !important
+// }
+//
+// #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover > #sidebar{
+//   transition: min-width 300ms !important;
+//   min-width: var(--uc-sidebar-hover-width) !important;
+//   transition-delay: 0ms !important
+// }
+
+// working in Firefox 132.0b1
+#sidebar-box {
+  --sidebar-hover-width: 78px;
+  position: relative !important;
+  overflow-x: hidden !important;
+  // margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+  min-width: var(--sidebar-hover-width) !important;
+  max-width: var(--sidebar-hover-width) !important;
+  border-right: 1px solid var(--sidebar-border-color);
+  z-index: 2147483647 !important;
+  transition: min-width 0.3s ease, max-width 0.3s ease, margin-right 0.3s ease; /* Add transition here */
 }
- 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] > #sidebar-splitter {
-  display: none
-}
- 
-/* Sidebar autohide and show on hover */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] > #sidebar {
-  transition: min-width 300ms !important;
-  min-width: var(--uc-sidebar-width) !important;
-  will-change: min-width;
-  transition-delay: 0ms !important
-}
- 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover > #sidebar{
-  transition: min-width 300ms !important;
-  min-width: var(--uc-sidebar-hover-width) !important;
-  transition-delay: 0ms !important
+
+#sidebar-box:hover {
+  --sidebar-visible-width: 240px;
+  margin-right: calc(162px * -1) !important;
+  min-width: var(--sidebar-visible-width) !important;
+  max-width: var(--sidebar-visible-width) !important;
 }
