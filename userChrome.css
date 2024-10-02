@@ -46,6 +46,25 @@
 // }
 
 // working in Firefox 132.0b1
+// #sidebar-box {
+//   --sidebar-hover-width: 20px !important;
+//   position: relative !important;
+//   overflow-x: hidden !important;
+//   // margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+//   min-width: var(--sidebar-hover-width) !important;
+//   max-width: var(--sidebar-hover-width) !important;
+//   border-right: 1px solid var(--sidebar-border-color);
+//   z-index: 2147483647 !important;
+//   transition: min-width 0.3s ease, max-width 0.3s ease, margin-right 0.3s ease; /* Add transition here */
+// }
+//
+// #sidebar-box:hover {
+//   --sidebar-visible-width: 240px;
+//   //margin-right: calc(162px * -1) !important;
+//   min-width: var(--sidebar-visible-width) !important;
+//   max-width: var(--sidebar-visible-width) !important;
+// }
+
 #sidebar-box {
   --sidebar-hover-width: 78px;
   position: relative !important;
@@ -54,13 +73,31 @@
   min-width: var(--sidebar-hover-width) !important;
   max-width: var(--sidebar-hover-width) !important;
   border-right: 1px solid var(--sidebar-border-color);
-  z-index: 2147483647 !important;
+  z-index: 3 !important;
   transition: min-width 0.3s ease, max-width 0.3s ease, margin-right 0.3s ease; /* Add transition here */
 }
 
 #sidebar-box:hover {
   --sidebar-visible-width: 240px;
-  margin-right: calc(162px * -1) !important;
+  margin-right: -162px !important;
   min-width: var(--sidebar-visible-width) !important;
   max-width: var(--sidebar-visible-width) !important;
+}
+
+#sidebar {
+  opacity: 1 !important;
+}
+
+#sidebar-box:hover #sidebar {
+  opacity: 1 !important;
+}
+
+/* #sidebar-header is hidden by default, change "none" to "inherit" to restore it. */
+#sidebar-header {
+  display: none !important;
+}
+
+/* #sidebar-splitter styles the divider between the sidebar and the rest of the browser. */
+#sidebar-splitter {
+  display: none;
 }
